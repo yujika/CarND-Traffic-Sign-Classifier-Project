@@ -91,7 +91,7 @@ My final model consisted of the following layers:
  
 
 
-#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as ing rate.
 
 To train the model, I used the following
 - Added drop out layer with 0.35 probability to prevent over fitting, because default LeNet works almost OK but it was over fitted.
@@ -107,7 +107,7 @@ To train the model, I used the following
 My final model results were:
 * training set accuracy of 0.999
 * validation set accuracy of 0.961
-* test set accuracy of ?
+* test set accuracy of 0.955
 
 I chose iterative approach:
 * What was the first architecture that was tried and why was it chosen?
@@ -149,33 +149,62 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Speed limit 20km/h    |    									| 
-| Speed limit 30km/h    |  										|
-| Speed limit 50km/h    | 											|
-| Speed limit 70km/h	| 					 				|
-| Speed limit 80km/h	|       							|
+| Speed limit 20km/h    | Speed limit 30km/h		| 
+| Speed limit 30km/h    | Priority Road				|
+| Speed limit 50km/h    | Speed limit 30km/h			|
+| Speed limit 60km/h	| Speed limit 60km/h		 				|
+| Speed limit 70km/h	| Priority Road      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 1 of the 5 traffic signs, which gives an accuracy of 20%. 
+Even though training/validation/test accuracy is not so bad, but it seems that my way of training is not so applicable to new images.
+Something might be wrong, but I couldn't figure out why.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
+For the first image - Speed limit 20km/h, predicted as speed imit 70km/h in very high probability of 0.98, but the prediction is wrong. It seems that training was not successful.
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .98         			| Speed limit 70km/h							| 
+| .003     				| Speed limit 30km/h							|
+| .003					| Road work							|
 
 
-For the second image ... 
+For the second image - Speed limit 30km/h, prediction is 0.50 ( not so confident? ) and wrong. 
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .50         			| Keep right   									| 
+| .23     				| Turn right ahead								|
+| .09					| Speed limit 60km/h					|
+
+For the 3rd image - Speed limit 50km/h, predicted correctly, but probability is almost 50%. Not so good result.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .56         			| Speed limit 50km/h						| 
+| .23     				| Turn right ahead							|
+| .09					| Speed limit 60km/h						|
+
+For the 4th image - Speed limit 60km/h, predicted as speed limit but wrong. image is too dark?
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .78         			| Speed limit 120km/h						| 
+| .06     				| Speed limit 60km/h						|
+| .03					| Speed limit 50km/h						|
+
+For the 5th image - speed limit 70km/h, not recognized as speed limit. Too dark to predict?
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .45         			| Road work  									| 
+| .12     				| Turn left ahead								|
+| .09					| Beware of ice/snow						|
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+I failed to show visualization of neural network, because of runtime error.
+Porbably argument I passed is wrong, but I couldn't figure out what is wrong.
+
 
 
