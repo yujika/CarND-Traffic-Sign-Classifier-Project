@@ -149,62 +149,62 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Speed limit 20km/h    | Speed limit 30km/h		| 
-| Speed limit 30km/h    | Priority Road				|
-| Speed limit 50km/h    | Speed limit 30km/h			|
+| Speed limit 20km/h    | Speed limit 20km/h		| 
+| Speed limit 30km/h    | Speed limit 30km/h				|
+| Speed limit 50km/h    | Speed limit 50km/h			|
 | Speed limit 60km/h	| Speed limit 60km/h		 				|
-| Speed limit 70km/h	| Priority Road      							|
+| Speed limit 70km/h	| Speed limit 70km/h      							|
 
 
-The model was able to correctly guess 1 of the 5 traffic signs, which gives an accuracy of 20%. 
-Even though training/validation/test accuracy is not so bad, but it seems that my way of training is not so applicable to new images.
-Something might be wrong, but I couldn't figure out why.
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 1000%. 
+Initially I mistakenly feed reversed value image ( black=1.0 and white =-1.0 ), with that data, network showed very bad result.
+But after I corrected image data, network did good job as test accuracy reported ( 0.95 ).
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image - Speed limit 20km/h, predicted as speed imit 70km/h in very high probability of 0.98, but the prediction is wrong. It seems that training was not successful.
+For the first image - Speed limit 20km/h, predicted as speed imit 20km/h in very high probability of 0.95. very good result and much to test accuracy.
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .98         			| Speed limit 70km/h							| 
-| .003     				| Speed limit 30km/h							|
-| .003					| Road work							|
+| .950         			| Speed limit 20km/h							| 
+| .049    				| Speed limit 30km/h							|
+| .001					| Speed limit 60km/h							|
 
 
-For the second image - Speed limit 30km/h, prediction is 0.50 ( not so confident? ) and wrong. 
+For the second image - Speed limit 30km/h, predicted with almost 1.0 probability. Better than ist image.
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .50         			| Keep right   									| 
-| .23     				| Turn right ahead								|
-| .09					| Speed limit 60km/h					|
+| .99996         			| Speed limit 30km/h							| 
+| .00003     				| Speed limit 70km/h							|
+| .00001					| Speed limit 40km/h							|
 
-For the 3rd image - Speed limit 50km/h, predicted correctly, but probability is almost 50%. Not so good result.
+For the 3rd image - Speed limit 50km/h, predicted correctly with almost 1.0 probabirlity.
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .56         			| Speed limit 50km/h						| 
-| .23     				| Turn right ahead							|
-| .09					| Speed limit 60km/h						|
+| .999996     			| Speed limit 50km/h							| 
+| .000003  				| Speed limit 80km/h						|
+| .000001				| Speed limit 30km/h					|
 
-For the 4th image - Speed limit 60km/h, predicted as speed limit but wrong. image is too dark?
+For the 4th image - Speed limit 60km/h - predicted correctly with almost 1.0 probability
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .78         			| Speed limit 120km/h						| 
-| .06     				| Speed limit 60km/h						|
-| .03					| Speed limit 50km/h						|
+| .9999994     			| Speed limit 50km/h						| 
+| .0000005     			| Speed limit 80km/h							|
+| .0000001				| Speed limit 30km/h						|
 
-For the 5th image - speed limit 70km/h, not recognized as speed limit. Too dark to predict?
+For the 5th image - speed limit 70km/h, - predicted correctly with almost 1.0 probability
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .45         			| Road work  									| 
-| .12     				| Turn left ahead								|
-| .09					| Beware of ice/snow						|
+| .999970      			| Speed limit 70km/h						| 
+| .000025  				| Speed limit 30km/h						|
+| .000002				| Speed limit 120km/h						|
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-I failed to show visualization of neural network, because of runtime error.
-Porbably argument I passed is wrong, but I couldn't figure out what is wrong.
+I showed 2nd convolution netowrk. But didn't make sense...
 
 
 
